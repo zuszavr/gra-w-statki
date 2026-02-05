@@ -1,0 +1,42 @@
+C:\Users\1ap\source\repos\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.exe
+C:\Users\1ap\source\repos\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.deps.json
+C:\Users\1ap\source\repos\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.runtimeconfig.json
+C:\Users\1ap\source\repos\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.dll
+C:\Users\1ap\source\repos\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.pdb
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfoInputs.cache
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfo.cs
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.csproj.CoreCompileInputs.cache
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.dll
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\refint\gra w statki.dll
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.pdb
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.genruntimeconfig.cache
+C:\Users\1ap\source\repos\gra w statki\gra w statki\obj\Debug\net8.0\ref\gra w statki.dll
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.exe
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.deps.json
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.runtimeconfig.json
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.dll
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.pdb
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfoInputs.cache
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfo.cs
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.csproj.CoreCompileInputs.cache
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.dll
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\refint\gra w statki.dll
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.pdb
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.genruntimeconfig.cache
+C:\Users\Devdb\Downloads\gra w statki\gra w statki\obj\Debug\net8.0\ref\gra w statki.dll
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.exe
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.deps.json
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.runtimeconfig.json
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.dll
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.pdb
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfoInputs.cache
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfo.cs
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.csproj.CoreCompileInputs.cache
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.dll
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\refint\gra w statki.dll
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.pdb
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.genruntimeconfig.cache
+C:\Users\1ap\Downloads\gra w statki (2)\gra w statki\gra w statki\obj\Debug\net8.0\ref\gra w statki.dll
