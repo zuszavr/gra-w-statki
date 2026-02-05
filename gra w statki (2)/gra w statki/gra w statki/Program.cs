@@ -7,6 +7,7 @@ int p1 = 0;
 int k1 = 10;
 int wyl1 = r1.Next(p1 , k1);
 int wyl2 = r1.Next(p1 , k1);
+int p = 1;
 
 bool o = false;
 
@@ -22,12 +23,18 @@ s2 = s2 - 1;
 wypisz();
 
 void wypisz()
-{
+{   
+
+    Console.WriteLine("  A B C D E F G H I J");
     int j = 0;
     for (int ii = 0; ii < 10; ii++)
     {
+        Console.Write(p);
+        p = p + 1;
+        if (p == 11) { p = 1; }
         for (int i = 0; i < 10; i++)
         {
+            Console.Write(" ");
             if (plansza[i, j] == plansza[s1, s2])
             {
                 if (plansza[s1, s2] == plansza[0,0] && o == false)
@@ -57,6 +64,7 @@ void wypisz()
         }
         Console.Write("\n");
         j++;
+        
     }
 }
 
@@ -72,35 +80,34 @@ int strzal1()
     switch (y)
     {
         case 1:
-            o = true;
-            s2 = strzal2();
+            strz();
             return 1;
         case 2:
-            s2 = strzal2();
+            strz();
             return 2;
         case 3:
-            s2 = strzal2();
+            strz();
             return 3;
         case 4:
-            s2 = strzal2();
+            strz();
             return 4;
         case 5:
-            s2 = strzal2();
+            strz();
             return 5;
         case 6:
-            s2 = strzal2();
+            strz();
             return 6;
         case 7:
-            s2 = strzal2();
+            strz();
             return 7;
         case 8:
-            s2 = strzal2();
+            strz();
             return 8;
         case 9:
-            s2 = strzal2();
+            strz();
             return 9;
         case 10:
-            s2 = strzal2();
+            strz();
             return 10;
         default:
             Console.Clear();
@@ -155,3 +162,8 @@ int strzal2()
     }
 }
 
+void strz()
+{
+    o = true;
+    s2 = strzal2();
+}
