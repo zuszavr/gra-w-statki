@@ -1,49 +1,68 @@
-﻿string[,] plansza = new string[10, 10];
+﻿using System.Runtime.Intrinsics.X86;
+
+string[,] plansza = new string[10, 10];
 string[,] plansza2 = new string[10, 10];
 int s1 = 0;
 int s2 = 0;
+
 Random r1 = new Random();
 int p1 = 0;
 int k1 = 10;
-int wyl1 = r1.Next(p1 , k1);
-int wyl2 = r1.Next(p1 , k1);
+
 int p = 1;
 
 bool o = false;
+bool gra = true;
 
-Console.WriteLine(wyl1);
-Console.WriteLine(wyl2);
 
-plansza2[wyl1, wyl2] = "S";
+for (int si = 0; si < 10; si++)
+{
+    int wyl1 = r1.Next(p1, k1);
+    int wyl2 = r1.Next(p1, k1);
 
+    if (wyl1 + 1 == plansza2)
+    {
+        wyl1 = r1.Next(p1, k1);
+    }
+
+    Console.WriteLine(wyl1 + 1);
+    Console.WriteLine(wyl2 + 1);
+    Console.WriteLine(" ");
+
+    plansza2[wyl1, wyl2] = "S";
+
+}
 wypisz();
-s1 = strzal1();
-s1 = s1 - 1;
-s2 = s2 - 1;
-wypisz();
+while (gra)
+{
+    s1 = strzal1();
+    s1 = s1 - 1;
+    s2 = s2 - 1;
+    wypisz();
+}
+
 
 void wypisz()
 {   
 
-    Console.WriteLine("  A B C D E F G H I J");
+    Console.WriteLine(" A B C D E F G H I J");
     int j = 0;
     for (int ii = 0; ii < 10; ii++)
     {
-        Console.Write(p);
-        p = p + 1;
-        if (p == 11) { p = 1; }
+        
         for (int i = 0; i < 10; i++)
         {
             Console.Write(" ");
             if (plansza[i, j] == plansza[s1, s2])
             {
-                if (plansza[s1, s2] == plansza[0,0] && o == false)
+                if (plansza[s1, s2] == plansza[0, 0] && o == false)
                 {
                     plansza[i, j] = "~";
                 }
                 else
                 {
-                    if (plansza2[s1, s2] == "S")
+                    string St = plansza2[s1, s2];
+                    if (St == "S")
                     {
                         plansza[s1, s2] = "x";
                     }
@@ -62,6 +81,10 @@ void wypisz()
                 
             Console.Write(plansza[i, j]);
         }
+        Console.Write(" ");
+        Console.Write(p);
+        p = p + 1;
+        if (p == 11) { p = 1; }
         Console.Write("\n");
         j++;
         
@@ -72,11 +95,8 @@ int strzal1()
 {
     Console.WriteLine("Wybierz pole od A do J");
     char.TryParse(Console.ReadLine(), out char x);
-    Console.WriteLine(x);
     int y = (int)x;
-    Console.WriteLine(y);
     y = y - 64;
-    Console.WriteLine(y);
     switch (y)
     {
         case 1:
