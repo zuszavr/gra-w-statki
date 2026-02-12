@@ -9,53 +9,27 @@ int s1 = 0;
 int s2 = 0;
 
 Random r1 = new Random();
-int p1 = 0;
-int k1 = 10;
+
 
 int p = 1;
 
 bool o = false;
 bool gra = true;
 
-
-
-
-for (int si = 0; si < 10; si++)
+statekpoj(4);
+for (int i = 0; i < 2; i++)
 {
-    int wyl1 = r1.Next(p1, k1);
-    int wyl2 = r1.Next(p1, k1);
-
-    Random dwa = new Random();
-    int odwr = dwa.Next(1, 3);
-    if (odwr == 1)
-    {
-        plansza2[wyl1, wyl2] = "S";
-        while (plansza2[wyl1, wyl2] == "S")
-        {
-            wyl2 = r1.Next(p1, k1);
-        }
-
-        while (wyl2 < 0 || wyl2 + 1 >= 11)
-        {
-            wyl2 = r1.Next(p1, k1);
-        }
-
-            plansza2[wyl1, wyl2] = "S";
-
-    }
-    else
-    {
-        plansza2[wyl1, wyl2] = "S";
-        wyl1++;
-        while (wyl1 < 0 || wyl1 + 1 >= 11)
-        {
-            wyl1 = r1.Next(p1, k1);
-        }
-        plansza2[wyl1, wyl2] = "S";
-        
-    }
-
+    statekpoj(3);
 }
+for (int i = 0; i < 3; i++)
+{
+    statekpoj(2);
+}
+for (int i = 0; i < 4; i++)
+{
+    statekpoj(1);
+}
+
 
 Console.WriteLine("   _____   __            __     __      _ \r\n  / ___/  / /_  ____ _  / /_   / /__   (_)\r\n  \\__ \\  / __/ / __ `/ / __/  / //_/  / / \r\n ___/ / / /_  / /_/ / / /_   / ,<    / /  \r\n/____/  \\__/  \\__,_/  \\__/  /_/|_|  /_/\r\n \r\n ");
 
@@ -67,54 +41,53 @@ while (gra)
 }
 
 void wypisz()
-{   
+{
 
     Console.WriteLine(" A B C D E F G H I J");
     int j = 0;
     for (int ii = 0; ii < 10; ii++)
     {
-		Console.BackgroundColor = ConsoleColor.Black;
-		for (int i = 0; i < 10; i++)
+        Console.BackgroundColor = ConsoleColor.Black;
+        for (int i = 0; i < 10; i++)
         {
             Console.Write(" ");
-			Console.BackgroundColor = ConsoleColor.Blue;
-			if (plansza[i, j] == plansza[s1, s2])
+            Console.BackgroundColor = ConsoleColor.Blue;
+            if (plansza[i, j] == plansza[s1, s2])
             {
                 if (plansza[s1, s2] == plansza[0, 0] && o == false)
-				{
+                {
                     plansza[i, j] = "~";
-				}
+                }
                 else
                 {
                     string St = plansza2[s1, s2];
                     if (St == "S")
                     {
                         plansza[s1, s2] = "x";
-                        
                     }
                     else
                     {
                         plansza[s1, s2] = "O";
                     }
-                    
+
                 }
-                    
+
             }
-            else if (plansza[i ,j] == null)
+            else if (plansza[i, j] == null)
             {
                 plansza[i, j] = "~";
-			}
-                
+            }
+
             Console.Write(plansza[i, j]);
-		}
-		Console.BackgroundColor = ConsoleColor.Black;
-		Console.Write(" ");
-		Console.Write(p);
-        p = p + 1;
+        }
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.Write(" ");
+        Console.Write(p);
+        p++;
         if (p == 11) { p = 1; }
         Console.Write("\n");
         j++;
-        
+
     }
 }
 
@@ -218,9 +191,73 @@ void strz()
 void strzalg()
 {
     s1 = strzal1();
-    s1 = s1 - 1;
-    s2 = s2 - 1;
+    s1--;
+    s2--;
     if (s1 < 0) { s1 = 0; }
     if (s2 < 0) { s2 = 0; }
 
+}
+bool statekspr(int x, int y, bool kier, int dlug)
+{
+    for (int i = 0; i < dlug; i++)
+    {
+        int nx;
+        int ny;
+
+        if (kier)
+        {
+            nx = x;
+            ny = y + i;
+        }
+        else
+        {
+            nx = x + i;
+            ny = y;
+        }
+
+        if (nx < 0 || nx >= 10 || ny < 0 || ny >= 10)
+            return false;
+
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                int sx = nx + dx;
+                int sy = ny + dy;
+
+                if (sx >= 0 && sx < 10 && sy >= 0 && sy < 10)
+                {
+                    if (plansza2[sx, sy] == "S")
+                        return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+void statekpoj(int dlug)
+{
+    bool post = false;
+
+    while (!post)
+    {
+        int x = r1.Next(0, 10);
+        int y = r1.Next(0, 10);
+        bool kier = r1.Next(0, 2) == 0;
+
+        if (statekspr(x, y, kier, dlug))
+        {
+            for (int i = 0; i < dlug; i++)
+            {
+                if (kier)
+                    plansza2[x, y + i] = "S";
+                else
+                    plansza2[x + i, y] = "S";
+            }
+
+            post = true;
+        }
+    }
 }
