@@ -1,7 +1,9 @@
 ﻿using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
 using System.Xml;
 
-
+string[,] planszag = new string[10, 10];
+string[,] planszag2 = new string[10, 10];
 
 string[,] plansza = new string[10, 10];
 string[,] plansza2 = new string[10, 10];
@@ -11,10 +13,11 @@ int s2 = 0;
 Random r1 = new Random();
 
 
-int p = 1;
 
-bool o = false;
 bool gra = true;
+
+int statki = 10;
+int statkig = 20;
 
 statekpoj(4);
 for (int i = 0; i < 2; i++)
@@ -32,64 +35,87 @@ for (int i = 0; i < 4; i++)
 
 
 Console.WriteLine("   _____   __            __     __      _ \r\n  / ___/  / /_  ____ _  / /_   / /__   (_)\r\n  \\__ \\  / __/ / __ `/ / __/  / //_/  / / \r\n ___/ / / /_  / /_/ / / /_   / ,<    / /  \r\n/____/  \\__/  \\__,_/  \\__/  /_/|_|  /_/\r\n \r\n ");
-
+uststatki();
+wypiszg();
 wypisz();
 while (gra)
 {
     strzalg();
+    strzalb();
+    wypiszg();
     wypisz();
 }
 
 void wypisz()
 {
+    Console.WriteLine(" A  B  C  D  E  F  G  H  I  J");
 
-    Console.WriteLine(" A B C D E F G H I J");
-    int j = 0;
-    for (int ii = 0; ii < 10; ii++)
+    for (int j = 0; j < 10; j++)
     {
-        Console.BackgroundColor = ConsoleColor.Black;
         for (int i = 0; i < 10; i++)
         {
-            Console.Write(" ");
-            Console.BackgroundColor = ConsoleColor.Blue;
-            if (plansza[i, j] == plansza[s1, s2])
-            {
-                if (plansza[s1, s2] == plansza[0, 0] && o == false)
-                {
-                    plansza[i, j] = "~";
-                }
-                else
-                {
-                    string St = plansza2[s1, s2];
-                    if (St == "S")
-                    {
-                        plansza[s1, s2] = "x";
-                    }
-                    else
-                    {
-                        plansza[s1, s2] = "O";
-                    }
+            string pole = plansza[i, j];
 
-                }
-
-            }
-            else if (plansza[i, j] == null)
+            if (pole == null)
             {
-                plansza[i, j] = "~";
+                pole = "~";
             }
 
-            Console.Write(plansza[i, j]);
+            if (pole == "~")
+            {
+                Console.BackgroundColor = ConsoleColor.Blue;
+            }
+            else if (pole == "O")
+            {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+            }
+            else if (pole == "x")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+            }
+            else if (pole == "S")
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+            }
+
+            Console.Write(" " + pole + " ");
+            Console.ResetColor();
         }
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.Write(" ");
-        Console.Write(p);
-        p++;
-        if (p == 11) { p = 1; }
-        Console.Write("\n");
-        j++;
 
+        Console.Write("  " + (j + 1));
+        Console.WriteLine();
     }
+
+    Console.WriteLine();
+    Console.WriteLine("zostało: " + statki + " statków");
 }
+
+void wypiszg()
+{
+    Console.WriteLine(" A  B  C  D  E  F  G  H  I  J");
+
+    for (int j = 0; j < 10; j++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            string pole = planszag[i, j];
+            if (pole == null) pole = "~";
+
+            if (pole == "~") Console.BackgroundColor = ConsoleColor.DarkCyan;
+            else if (pole == "S") Console.BackgroundColor = ConsoleColor.DarkRed;
+            else if (pole == "x") Console.BackgroundColor = ConsoleColor.DarkGreen;
+            else if (pole == "O") Console.BackgroundColor = ConsoleColor.DarkGray;
+
+            Console.Write(" " + pole + " ");
+            Console.ResetColor();
+        }
+
+        Console.Write("  " + (j + 1));
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
 
 int strzal1()
 {
@@ -133,8 +159,7 @@ int strzal1()
             Console.Clear();
             Console.WriteLine("Nie możesz tego dać");
             wypisz();
-            strzal1();
-            return 0;
+            return strzal1();
     }
 }
 int strzal2()
@@ -144,7 +169,6 @@ int strzal2()
     switch (x)
     {
         case 1:
-            o = true;
             return 1;
         case 2:
 
@@ -177,14 +201,12 @@ int strzal2()
             Console.Clear();
             Console.WriteLine("Nie możesz tego dać");
             wypisz();
-            strzal2();
-            return 0;
+            return strzal2();
     }
 }
 
 void strz()
 {
-    o = true;
     s2 = strzal2();
 }
 
@@ -193,9 +215,34 @@ void strzalg()
     s1 = strzal1();
     s1--;
     s2--;
-    if (s1 < 0) { s1 = 0; }
-    if (s2 < 0) { s2 = 0; }
+    if (s1 < 0) s1 = 0;
+    if (s2 < 0) s2 = 0;
 
+    if (plansza2[s1, s2] == "S")
+    {
+        if (plansza[s1, s2] == "x" || plansza[s1, s2] == "O" || plansza[s1, s2] == "S")
+        {
+            Console.WriteLine("nie możesz tego dać");
+            strzalg();
+        }
+        else
+        {
+            plansza[s1, s2] = "x";
+            zatop(s1, s2);
+        }
+    }
+    else
+    {
+        if (plansza[s1, s2] == "x" || plansza[s1, s2] == "O" || plansza[s1, s2] == "S")
+        {
+            Console.WriteLine("nie możesz tego dać");
+            strzalg();
+        }
+        else
+        {
+            plansza[s1, s2] = "O";
+        }
+    }
 }
 bool statekspr(int x, int y, bool kier, int dlug)
 {
@@ -259,5 +306,248 @@ void statekpoj(int dlug)
 
             post = true;
         }
+    }
+}
+
+void zatop(int x, int y)
+{
+    int startX = x;
+    int endX = x;
+    int startY = y;
+    int endY = y;
+
+    while (startX > 0 && plansza2[startX - 1, y] == "S")
+    {
+        startX--;
+    }
+
+    while (endX < 9 && plansza2[endX + 1, y] == "S")
+    {
+        endX++;
+    }
+
+    while (startY > 0 && plansza2[x, startY - 1] == "S")
+    {
+        startY--;
+    }
+
+    while (endY < 9 && plansza2[x, endY + 1] == "S")
+    {
+        endY++;
+    }
+
+    if (startX != endX)
+    {
+        for (int i = startX; i <= endX; i++)
+        {
+            if (plansza[i, y] != "x")
+            {
+                return;
+            }
+        }
+
+        for (int i = startX; i <= endX; i++)
+        {
+            plansza[i, y] = "S";
+        }
+        statki--;
+    }
+
+    else if (startY != endY)
+    {
+        for (int i = startY; i <= endY; i++)
+        {
+            if (plansza[x, i] != "x")
+            {
+                return;
+            }
+        }
+
+        for (int i = startY; i <= endY; i++)
+        {
+            plansza[x, i] = "S";
+        }
+        statki--;
+    }
+
+
+    else
+    {
+        if (plansza[x, y] == "x")
+        {
+            plansza[x, y] = "S";
+            statki--;
+        }
+    }
+
+    if (statki == 0)
+    {
+        gra = false;
+        Console.Clear();
+        Console.WriteLine("WYGRAŁEŚ");
+    }
+}
+
+void uststatki()
+{
+    Console.WriteLine("Ustaw statki");
+
+    uststatek(4);
+
+    for (int i = 0; i < 2; i++)
+        uststatek(3);
+
+    for (int i = 0; i < 3; i++)
+        uststatek(2);
+
+    for (int i = 0; i < 4; i++)
+        uststatek(1);
+}
+
+void uststatek(int dlug)
+{
+    bool postawiono = false;
+
+    while (postawiono == false)
+    {
+        wypiszg();
+        Console.WriteLine("Ustaw statek o długości: " + dlug);
+
+        Console.WriteLine("Wybierz pole od A do J");
+        char litera;
+        char.TryParse(Console.ReadLine().ToUpper(), out litera);
+
+        int x = litera - 'A';
+
+        Console.WriteLine("Wybierz pole od 1 do 10");
+        int y;
+        int.TryParse(Console.ReadLine(), out y);
+        y = y - 1;
+
+        if (x < 0 || x > 9 || y < 0 || y > 9)
+        {
+            Console.WriteLine("Nie możesz tego dać");
+            continue;
+        }
+
+        Console.WriteLine("Podaj kierunek:");
+        Console.WriteLine("1 - poziomo");
+        Console.WriteLine("2 - pionowo");
+
+        string kierunek = Console.ReadLine().ToUpper();
+
+        bool pion = false;
+
+        if (kierunek == "1")
+        {
+            pion = true;
+        }
+        else if (kierunek == "2")
+        {
+            pion = false;
+        }
+        else
+        {
+            Console.WriteLine("Niepoprawny kierunek");
+            continue;
+        }
+
+        if (spr(x, y, dlug, pion))
+        {
+            for (int i = 0; i < dlug; i++)
+            {
+                if (pion == true)
+                {
+                    planszag[x, y + i] = "S";
+                }
+                else
+                {
+                    planszag[x + i, y] = "S";
+                }
+            }
+
+            postawiono = true;
+        }
+        else
+        {
+            Console.WriteLine("Nie można tu postawić statku");
+        }
+    }
+}
+bool spr(int x, int y, int dlug, bool pion)
+{
+    for (int i = 0; i < dlug; i++)
+    {
+        int nx = x;
+        int ny = y;
+
+        if (pion == true)
+        {
+            ny = y + i;
+        }
+        else
+        {
+            nx = x + i;
+        }
+
+        if (nx < 0 || nx > 9 || ny < 0 || ny > 9)
+        {
+            return false;
+        }
+
+        if (planszag[nx, ny] == "S")
+        {
+            return false;
+        }
+
+        for (int dx = -1; dx <= 1; dx++)
+        {
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                int sx = nx + dx;
+                int sy = ny + dy;
+
+                if (sx >= 0 && sx <= 9 && sy >= 0 && sy <= 9)
+                {
+                    if (planszag[sx, sy] == "S")
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+void strzalb()
+{
+
+    bool w = false;
+
+    while (w == false)
+    {
+        int x = r1.Next(0, 10);
+        int y = r1.Next(0, 10);
+
+        if (planszag[x, y] == "S")
+        {
+            planszag[x, y] = "x";
+            statkig--;
+
+            w = true;
+        }
+        else if (planszag[x, y] == null)
+        {
+            planszag[x, y] = "O";
+            w = true;
+        }
+    }
+    if (statkig == 0)
+    {
+        gra = false;
+        Console.Clear();
+        Console.WriteLine("PRZEGRAŁEŚ");
     }
 }

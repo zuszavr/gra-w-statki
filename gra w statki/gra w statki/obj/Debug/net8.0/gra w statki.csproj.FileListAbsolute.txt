@@ -12,3 +12,17 @@ C:\Users\MadMax\Desktop\affinity\gra w statki\gra w statki\obj\Debug\net8.0\refi
 C:\Users\MadMax\Desktop\affinity\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.pdb
 C:\Users\MadMax\Desktop\affinity\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.genruntimeconfig.cache
 C:\Users\MadMax\Desktop\affinity\gra w statki\gra w statki\obj\Debug\net8.0\ref\gra w statki.dll
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.exe
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.deps.json
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.runtimeconfig.json
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.dll
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\bin\Debug\net8.0\gra w statki.pdb
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfoInputs.cache
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.AssemblyInfo.cs
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.csproj.CoreCompileInputs.cache
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.dll
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\refint\gra w statki.dll
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.pdb
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\gra w statki.genruntimeconfig.cache
+C:\Users\MadMax\Desktop\gra w statki\gra w statki\obj\Debug\net8.0\ref\gra w statki.dll
